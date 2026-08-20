@@ -1,349 +1,417 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>모크드 레시피 포털 - 홈</title>
-<style>
-:root {
---primary-color: #ff5722;
---primary-hover: #e64a19;
---secondary-color: #3b82f6;
---secondary-hover: #2563eb;
---accent-color: #10b981;
---danger-color: #ef4444;
---bg-color: #f8fafc;
---card-bg: #ffffff;
---text-main: #1e293b;
---text-muted: #64748b;
---border-color: #e2e8f0;
---radius: 12px;
---radius-sm: 8px;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>모크드 레시피 포털 - 홈</title>
+  <style>
+    :root {
+      --primary-color: #ff5722;
+      --primary-hover: #e64a19;
+      --secondary-color: #3b82f6;
+      --secondary-hover: #2563eb;
+      --accent-color: #10b981;
+      --danger-color: #ef4444;
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
 
-• { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-background-color: var(--bg-color);
-color: var(--text-main);
-display: flex;
-flex-direction: column;
-min-height: 100vh;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-header {
-background: var(--card-bg);
-border-bottom: 1px solid var(--border-color);
-position: sticky;
-top: 0;
-z-index: 100;
-}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-.header-container {
-max-width: 1400px;
-margin: 0 auto;
-padding: 0.75rem 1.25rem;
-display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 1rem;
-}
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-.logo {
-font-size: 1.35rem;
-font-weight: 800;
-color: var(--primary-color);
-text-decoration: none;
-white-space: nowrap;
-}
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
 
-.nav-tabs {
-display: flex;
-gap: 0.5rem;
-background: #f1f5f9;
-padding: 4px;
-border-radius: var(--radius);
-}
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      text-decoration: none;
+      white-space: nowrap;
+    }
 
-.tab-btn {
-padding: 0.5rem 1.1rem;
-text-decoration: none;
-font-size: 0.9rem;
-font-weight: 600;
-color: var(--text-muted);
-border-radius: var(--radius-sm);
-transition: all 0.2s ease;
-display: inline-flex;
-align-items: center;
-gap: 0.4rem;
-}
+    .nav-tabs {
+      display: flex;
+      gap: 0.5rem;
+      background: #f1f5f9;
+      padding: 4px;
+      border-radius: var(--radius);
+    }
 
-.tab-btn:hover { color: var(--text-main); }
-.tab-btn.active {
-background: #fff;
-color: var(--primary-color);
-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
+    .tab-btn {
+      padding: 0.5rem 1.1rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
 
-.container {
-flex: 1;
-width: 100%;
-max-width: 1400px;
-margin: 0 auto;
-padding: 1.5rem 1.25rem;
-display: flex;
-flex-direction: column;
-gap: 1.5rem;
-}
+    .tab-btn:hover {
+      color: var(--text-main);
+    }
 
-.btn {
-padding: 0.55rem 0.95rem;
-border-radius: var(--radius-sm);
-font-size: 0.85rem;
-font-weight: 600;
-cursor: pointer;
-border: none;
-transition: all 0.2s;
-display: inline-flex;
-align-items: center;
-justify-content: center;
-gap: 0.35rem;
-text-decoration: none;
-white-space: nowrap;
-}
+    .tab-btn.active {
+      background: #fff;
+      color: var(--primary-color);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
 
-.btn-primary { background: var(--primary-color); color: #fff; }
-.btn-primary:hover { background: var(--primary-hover); }
-.btn-secondary { background: #eff6ff; border: 1px solid #bfdbfe; color: #1d4ed8; }
-.btn-secondary:hover { background: #dbeafe; }
-.btn-outline { background: #fff; border: 1px solid var(--border-color); color: var(--text-main); }
-.btn-outline:hover { background: #f8fafc; }
+    .container {
+      flex: 1;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
 
-.hero-banner {
-background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-border: 1px solid #fed7aa;
-border-radius: var(--radius);
-padding: 2rem;
-display: flex;
-justify-content: space-between;
-align-items: center;
-flex-wrap: wrap;
-gap: 1.5rem;
-}
+    .btn {
+      padding: 0.55rem 0.95rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
 
-.hero-text h1 { font-size: 1.65rem; color: #9a3412; margin-bottom: 0.4rem; }
-.hero-text p { font-size: 0.95rem; color: #c2410c; }
+    .btn-primary {
+      background: var(--primary-color);
+      color: #fff;
+    }
 
-.stats-row {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-gap: 1rem;
-}
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
 
-.stat-card {
-background: var(--card-bg);
-border: 1px solid var(--border-color);
-border-radius: var(--radius);
-padding: 1.25rem;
-display: flex;
-align-items: center;
-gap: 1rem;
-}
+    .btn-secondary {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+    }
 
-.stat-icon {
-width: 48px;
-height: 48px;
-border-radius: var(--radius-sm);
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 1.5rem;
-}
+    .btn-secondary:hover {
+      background: #dbeafe;
+    }
 
-.stat-info h4 { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; }
-.stat-info .stat-value { font-size: 1.5rem; font-weight: 800; color: var(--text-main); }
+    .btn-outline {
+      background: #fff;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+    }
 
-.home-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-gap: 1.5rem;
-}
+    .btn-outline:hover {
+      background: #f8fafc;
+    }
 
-.home-section-card {
-background: var(--card-bg);
-border: 1px solid var(--border-color);
-border-radius: var(--radius);
-padding: 1.25rem;
-display: flex;
-flex-direction: column;
-gap: 1rem;
-}
+    .hero-banner {
+      background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+      border: 1px solid #fed7aa;
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
 
-.home-section-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
+    .hero-text h1 {
+      font-size: 1.65rem;
+      color: #9a3412;
+      margin-bottom: 0.4rem;
+    }
 
-.home-section-header h3 { font-size: 1.1rem; font-weight: 700; }
+    .hero-text p {
+      font-size: 0.95rem;
+      color: #c2410c;
+    }
 
-.recent-list {
-list-style: none;
-display: flex;
-flex-direction: column;
-gap: 0.6rem;
-}
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
 
-.recent-item {
-padding: 0.75rem;
-border: 1px solid var(--border-color);
-border-radius: var(--radius-sm);
-display: flex;
-justify-content: space-between;
-align-items: center;
-text-decoration: none;
-color: inherit;
-transition: all 0.15s;
-}
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
 
-.recent-item:hover { background: #f8fafc; border-color: #cbd5e1; }
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
 
-@media (max-width: 900px) {
-.header-container { flex-direction: column; align-items: stretch; }
-.nav-tabs { width: 100%; justify-content: center; }
-.home-grid { grid-template-columns: 1fr; }
-}
-</style>
+    .stat-info h4 {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .stat-info .stat-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .home-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .home-section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .home-section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .home-section-header h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+
+    .recent-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .recent-item {
+      padding: 0.75rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.15s;
+    }
+
+    .recent-item:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+    }
+
+    @media (max-width: 900px) {
+      .header-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .nav-tabs {
+        width: 100%;
+        justify-content: center;
+      }
+      .home-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-<div class="header-container">
-<a href="index.html" class="logo">🍲 모크드 레시피 포털</a>
-<nav class="nav-tabs">
-<a href="index.html" class="tab-btn active">🏠 홈</a>
-<a href="recipes.html" class="tab-btn">📖 레시피</a>
-<a href="database.html" class="tab-btn">🗄️ 음식 DB</a>
-</nav>
-</div>
-</header>
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo">🍲 모크드 레시피 포털</a>
+      <nav class="nav-tabs">
+        <a href="index.html" class="tab-btn active">🏠 홈</a>
+        <a href="recipes.html" class="tab-btn">📖 레시피</a>
+        <a href="database.html" class="tab-btn">🗄️ 음식 DB</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="container">
-<section class="hero-banner">
-<div class="hero-text">
-<h1>나만의 미식 데이터베이스 & 레시피</h1>
-<p>체계적인 음식 사전 관리와 단계별 조리 비법을 한곳에서 기록하고 조회하세요.</p>
-</div>
-<div style="display:flex; gap:0.5rem;">
-<a href="recipes.html?action=new" class="btn btn-primary">+ 새 레시피 작성</a>
-<a href="database.html" class="btn btn-secondary">음식 사전 보기</a>
-</div>
-</section>
+  <main class="container">
+    <section class="hero-banner">
+      <div class="hero-text">
+        <h1>나만의 미식 데이터베이스 & 레시피</h1>
+        <p>체계적인 음식 사전 관리와 단계별 조리 비법을 한곳에서 기록하고 조회하세요.</p>
+      </div>
+      <div style="display: flex; gap: 0.5rem;">
+        <a href="recipes.html?action=new" class="btn btn-primary">+ 새 레시피 작성</a>
+        <a href="database.html" class="btn btn-secondary">음식 사전 보기</a>
+      </div>
+    </section>
 
-<section class="stats-row">
-<div class="stat-card">
-<div class="stat-icon" style="background:#fff1f2; color:#e11d48;">📂</div>
-<div class="stat-info">
-<h4>전체 분류 카테고리</h4>
-<div class="stat-value" id="statCategories">0</div>
-</div>
-</div>
-<div class="stat-card">
-<div class="stat-icon" style="background:#ecfdf5; color:#059669;">🥘</div>
-<div class="stat-info">
-<h4>등록된 음식 DB</h4>
-<div class="stat-value" id="statDbFoods">0</div>
-</div>
-</div>
-<div class="stat-card">
-<div class="stat-icon" style="background:#eff6ff; color:#2563eb;">📜</div>
-<div class="stat-info">
-<h4>작성된 레시피</h4>
-<div class="stat-value" id="statRecipes">0</div>
-</div>
-</div>
-</section>
+    <section class="stats-row">
+      <div class="stat-card">
+        <div class="stat-icon" style="background: #fff1f2; color: #e11d48;">📂</div>
+        <div class="stat-info">
+          <h4>전체 분류 카테고리</h4>
+          <div class="stat-value" id="statCategories">0</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background: #ecfdf5; color: #059669;">🥘</div>
+        <div class="stat-info">
+          <h4>등록된 음식 DB</h4>
+          <div class="stat-value" id="statDbFoods">0</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background: #eff6ff; color: #2563eb;">📜</div>
+        <div class="stat-info">
+          <h4>작성된 레시피</h4>
+          <div class="stat-value" id="statRecipes">0</div>
+        </div>
+      </div>
+    </section>
 
-<section class="home-grid">
-<div class="home-section-card">
-<div class="home-section-header">
-<h3>최근 등록된 레시피</h3>
-<a href="recipes.html" class="btn btn-outline" style="font-size:0.78rem; padding:0.3rem 0.6rem;">전체 보기 →</a>
-</div>
-<ul class="recent-list" id="homeRecentRecipes"></ul>
-</div>
+    <section class="home-grid">
+      <div class="home-section-card">
+        <div class="home-section-header">
+          <h3>최근 등록된 레시피</h3>
+          <a href="recipes.html" class="btn btn-outline" style="font-size: 0.78rem; padding: 0.3rem 0.6rem;">전체 보기 →</a>
+        </div>
+        <ul class="recent-list" id="homeRecentRecipes"></ul>
+      </div>
 
-<div class="home-section-card">
-<div class="home-section-header">
-<h3>음식 DB 추천 탐색</h3>
-<a href="database.html" class="btn btn-outline" style="font-size:0.78rem; padding:0.3rem 0.6rem;">DB 관리 →</a>
-</div>
-<div style="display:flex; flex-wrap:wrap; gap:0.5rem;" id="homeFoodChips"></div>
-</div>
-</section>
-</main>
+      <div class="home-section-card">
+        <div class="home-section-header">
+          <h3>음식 DB 추천 탐색</h3>
+          <a href="database.html" class="btn btn-outline" style="font-size: 0.78rem; padding: 0.3rem 0.6rem;">DB 관리 →</a>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;" id="homeFoodChips"></div>
+      </div>
+    </section>
+  </main>
 
-<script>
-const defaultCategories = [
-"국", "탕", "찌개", "백반", "가정식", "쌈밥", "보리밥·잡곡밥", "솥밥·돌솥밥", "전·부침개", "두부요리", "나물·반찬", "푸드트럭요리", "시장음식", "길거리음식", "도시락", "채식·비건", "퓨전요리", "브런치", "버거", "샌드위치", "샐러드", "포케", "타코", "부리토", "피자", "파스타", "치킨", "덮밥", "라이스볼", "누들", "커리", "케밥", "핫도그", "프라이드치킨", "젓갈", "김치", "정찬", "사찰음식", "궁중음식", "전통찻집", "술", "해장음식", "면요리", "메밀요리", "분식", "전통간식", "전통떡", "빵", "롤빵", "디저트", "브라우니", "대형 케이크", "소형 케이크", "사탕", "과자", "쿠키", "비스킷", "크래커", "프로스팅", "필링", "파이", "타르트", "페이스트리", "크럼블", "코블러", "아이스크림", "냉동 디저트", "무스", "트라이플", "커스터드", "팬케이크", "와플", "크레페", "칠리", "커리", "딥", "스프레드", "살사", "계란 요리", "튀김", "그릴", "바비큐", "구운 파스타", "파스타", "반죽", "소스", "속을 채운 파스타", "피자", "칼조네", "패스트푸드", "야매요리", "샌드위치", "버거", "수프", "스튜", "원팟요리", "볶음 요리", "타코", "퀘사디아", "토스트", "크로스티니", "랩", "부리토", "무알음료", "알콜음료", "칵테일", "처트니", "피클", "렐리시", "발효음식", "잼", "젤리", "보존음식", "드레싱", "마리네이드", "밥 요리", "샐러드", "디저트용 소스", "생선용 소스", "육류용 소스", "가금류용 소스", "소스", "육수", "스터핑", "계란요리", "생선요리", "해산물요리", "과일요리", "곡물요리", "콩요리", "파스타요리", "허브요리", "향신료요리", "육류요리", "가금류요리", "수렵육요리", "채소요리", "비건요리", "애프터눈 티요리", "전채요리", "아침식사요리", "브런치요리", "카나페요리", "오르되브르요리", "디저트요리", "일반 코스요리", "점심요리", "주요리", "메인 코스요리", "곁들임 요리", "타파스요리", "메제요리", "스낵요리", "저녁식사", "명절/홀리데이", "산동요리", "제남요리", "교동요리", "공부요리", "청도요리", "연대요리", "위해요리", "유방요리", "치박요리", "태안요리", "임청요리", "덕주요리", "빈주요리", "동영요리", "일조요리", "하택요리", "랴오청요리", "곡부요리", "태산요리", "황하삼각주요리", "교주요리", "즉묵요리", "봉래요리", "영성요리", "문등요리", "룽커우요리", "조주요리", "장구요리", "평도요리", "안구요리", "수광요리", "제성요리", "고밀요리", "청주요리", "임기요리", "몽음요리", "비현요리", "창산요리", "창읍요리", "고원요리", "하진요리", "양곡요리", "신태요리", "비성요리", "영성요리", "곤산요리", "광동요리", "광주요리", "조주요리", "고급 조주요리", "객가요리", "순덕요리", "불산요리", "남해요리", "번우요리", "증성요리", "종화요리", "화도요리", "청원요리", "영덕요리", "소관요리", "곡강요리", "남웅요리", "심천요리", "동관요리", "혜주요리", "하원요리", "매주요리", "흥녕요리", "조양요리", "산두요리", "조안요리", "조주요리", "제양요리", "보녕요리", "푸닝요리", "육풍요리", "산미요리", "강문요리", "신회요리", "태산요리", "개평요리", "은평요리", "중산요리", "주해요리", "양강요리", "양춘요리", "무명요리", "전백요리", "잔강요리", "뇌주요리", "고주요리", "신의요리", "운부요리", "나정요리", "운안요리", "사천요리", "성도요리", "중경요리", "천미요리", "자공요리", "내강요리", "낙산요리", "미산요리", "아미산요리", "남충요리", "수녕요리", "광안요리", "달주요리", "파중요리", "의빈요리", "노주요리", "덕양요리", "면양요리", "광원요리", "야안요리", "아안요리", "간지요리", "아바요리", "량산요리", "서창요리", "판즈화요리", "두장옌요리", "팽주요리", "면죽요리", "랑중요리", "완원요리", "만주요리", "영천요리", "합천요리", "만성요리", "강진요리", "영창요리", "개주요리", "기강요리", "남천요리", "수산요리", "호남요리", "장사요리", "상탄요리", "주주요리", "형양요리", "소양요리", "악양요리", "상덕요리", "익양요리", "영주요리", "회화요리", "루저우요리", "장가계요리", "길수요리", "영릉요리", "도원요리", "임례요리", "도현요리", "신화요리", "안향요리", "한수요리", "형산요리", "기동요리", "동안요리", "신전요리", "자흥요리", "유현요리", "차릉요리", "염릉요리", "복건요리", "복주요리", "민남요리", "민동요리", "민서요리", "천주요리", "장주요리", "하문요리", "남평요리", "삼명요리", "용암요리", "영안요리", "복청요리", "장락요리", "민후요리", "연강요리", "나원요리", "복안요리", "복정요리", "고전요리", "주녕요리", "하포요리", "수녕요리", "선유요리", "보전요리", "혜안요리", "안계요리", "영춘요리", "덕화요리", "남안요리", "진강요리", "석사자요리", "동안요리", "장태요리", "용해요리", "남정요리", "조안요리", "화안요리", "장평요리", "영정요리", "상항요리", "무평요리", "장정요리", "강서요리", "남창요리", "구강요리", "경덕진요리", "평향요리", "신여요리", "구강요리", "영수요리", "길안요리", "이춘요리", "푸저우요리", "상요리", "감주요리", "난풍요리", "무주요리", "정강산요리", "풍성요리", "고안요리", "진현요리", "안의요리", "수천요리", "태화요리", "영신요리", "만안요리", "수금요리", "남강요리", "대여요리", "신풍요리", "용남요리", "안원요리", "회창요리", "절강요리", "항주요리", "영파요리", "소흥요리", "온주요리", "호주요리", "가흥요리", "금화요리", "구주요리", "태주요리", "여수요리", "의오요리", "제기요리", "동양요리", "란계요리", "영강요리", "포강요리", "무의요리", "반안요리", "천태요리", "선거요리", "임해요리", "온령요리", "옥환요리", "평양요리", "창남요리", "서안요리", "가선요리", "해녕요리", "동향요리", "평호요리", "안길요리", "덕청요리", "장흥요리", "장쑤요리", "남경요리", "소주요리", "무석요리", "상주요리", "진강요리", "양주요리", "남통요리", "서주요리", "염성요리", "회안요리", "연운항요리", "태주요리", "숙천요리", "회양요리", "강남요리", "강소요리", "곤산요리", "태창요리", "상숙요리", "오강요리", "의정요리", "고우요리", "태흥요리", "정강요리", "흥화요리", "동대요리", "여고요리", "계동요리", "해문요리", "여동요리", "풍현요리", "패현요리", "신의요리", "수녕요리", "비현요리", "사양요리", "건호요리", "보응요리", "금호요리", "홍택요리", "안후이요리", "합비요리", "무호요리", "방부요리", "안경요리", "황산요리", "툰시요리", "마안산요리", "화이난요리", "화이베이요리", "동릉요리", "푸양요리", "숙주요리", "육안요리", "선성요리", "지주요리", "차오후요리", "허페이요리", "징더전요리", "후베이요리", "무한요리", "황석요리", "십언요리", "이창요리", "양양요리", "형문요리", "효감요리", "황강요리", "함녕요리", "수주요리", "은시요리", "경주요리", "선도요리", "천문요리", "잠강요리", "마성요리", "홍안요리", "운몽요리", "한천요리", "종상요리", "당양요리", "송자요리", "석수요리", "공성요리", "하남요리", "정주요리", "개봉요리", "낙양요리", "안양요리", "신향요리", "허창요리", "평정산요리", "남양요리", "상구요리", "주마점요리", "신양요리", "초작요리", "학벽요리", "삼문협요리", "주구요리", "등주요리", "진양요리", "개봉요리", "중경요리", "천진요리", "북경요리", "동북요리", "요녕요리", "심양요리", "대련요리", "길림요리", "장춘요리", "흑룡강요리", "하얼빈요리", "연변요리", "내몽골요리", "운남요리", "귀주요리", "광서요리", "계림요리", "남녕요리", "운남요리", "곤명요리", "대리요리", "리장요리", "티베트요리", "서장요리", "신강요리", "위구르요리", "감숙요리", "섬서요리", "서안요리", "산서요리", "태원요리", "하북요리", "석가장요리", "호북요리", "청해요리", "영하요리", "해남요리", "하이난요리", "중국술", "중식포차요리", "중식코스요리", "중식밥집", "중식도시락", "중식분식", "중식야시장", "중식 퓨전요리", "함경도", "평안도", "황해도", "서울", "경기도", "강원도", "충청도", "전라도", "경상도", "일본", "몽골", "대만", "홍콩", "마카오", "대한민국", "북한", "중국", "베트남", "태국", "캄보디아", "라오스", "미얀마", "말레이시아", "싱가포르", "인도네시아", "브루나이", "필리핀", "동티모르", "인도", "파키스탄", "방글라데시", "네팔", "부탄", "스리랑카", "몰디브", "아프가니스탄", "사우디아라비아", "아랍에미리트", "카타르", "쿠웨이트", "바레인", "오만", "예멘", "이라크", "이란", "시리아", "레바논", "요르단", "이스라엘", "팔레스타인", "터키", "키프로스", "아르메니아", "아제르바이잔", "조지아", "카자흐스탄", "우즈베키스탄", "투르크메니스탄", "키르기스스탄", "타지키스탄", "러시아", "우크라이나", "벨라루스", "몰도바", "루마니아", "불가리아", "세르비아", "몬테네그로", "북마케도니아", "보스니아 헤르체고비나", "코소보", "영국", "아일랜드", "프랑스", "벨기에", "네덜란드", "룩셈부르크", "독일", "오스트리아", "스위스", "리히텐슈타인", "모나코", "스페인", "포르투갈", "이탈리아", "그리스", "알바니아", "크로아티아", "슬로베니아", "몰타", "안도라", "산마리노", "바티칸", "노르웨이", "스웨덴", "덴마크", "핀란드", "아이슬란드", "폴란드", "체코", "슬로바키아", "헝가리", "에스토니아", "라트비아", "리투아니아", "키프로스", "가나", "가봉", "감비아", "기니", "기니비사우", "나미비아", "나이지리아", "남수단", "남아프리카공화국", "니제르", "라이베리아", "레소토", "르완다", "리비아", "마다가스카르", "말라위", "말리", "모로코", "모리셔스", "모리타니", "모잠비크", "베냉", "보츠와나", "부룬디", "부르키나파소", "상투메 프린시페", "서사하라", "세네갈", "세이셸", "소말리아", "수단", "시에라리온", "알제리", "앙골라", "에리트레아", "에스와티니", "에티오피아", "우간다", "이집트", "잠비아", "적도 기니", "중앙아프리카공화국", "지부티", "짐바브웨", "차드", "카메룬", "카보베르데", "케냐", "코모로", "코트디부아르", "콩고 공화국", "콩고 민주 공화국", "탄자니아", "토고", "튀니지", "캐나다", "미국", "멕시코", "그린란드", "버뮤다", "생피에르 미클롱", "과테말라", "벨리즈", "엘살바도르", "온두라스", "니카라과", "코스타리카", "파나마", "쿠바", "자메이카", "아이티", "도미니카공화국", "바하마", "바베이도스", "트리니다드 토바고", "그레나다", "세인트루시아", "세인트빈센트 그레나딘", "도미니카", "앤티가 바부다", "세인트키츠 네비스", "아루바", "퀴라소", "케이맨 제도", "버진아일랜드", "푸에르토리코", "과들루프", "마르티니크", "브라질", "아르헨티나", "칠레", "페루", "볼리비아", "파라과이", "우루과이", "콜롬비아", "베네수엘라", "에콰도르", "가이아나", "수리남", "프랑스령 기아나", "포클랜드 제도", "호주", "뉴질랜드", "파푸아뉴기니", "피지", "사모아", "통가", "바누아투", "솔로몬 제도", "미크로네시아 연방", "마셜 제도", "팔라우", "키리바시", "나우루", "투발루", "쿡 제도", "니우에", "뉴칼레도니아", "프랑스령 폴리네시아", "괌", "북마리아나 제도", "미국령 사모아", "크리스마스섬", "코코스 제도", "노퍽섬", "암보족 요리", "볼로족 요리", "카보베르족 요리", "초웨족 요리", "딤바족 요리", "기리쿠족 요리", "헤이쿰족 요리", "헤레로족 요리", "홀루족 요리", "훈구족 요리", "김분두족 요리", "쿵에코칼족 요리", "쿵쯧웨족 요리", "쿠발레족 요리", "관두족 요리", "관야마족 요리", "셩족 요리", "쑨족 요리", "랄리족 요리", "링갈라족 요리", "로지족 요리", "루바루아족 요리", "루차지족 요리", "루임비족 요리", "룬다족 요리", "루발레족 요리", "루야나족 요리", "광갈리족 요리", "르왈와족 요리", "마시족 요리", "음방갈족 요리", "음부쿠슈족 요리", "음분다족 요리", "음핀다족 요리", "무하카오족 요리", "은돔베족 요리", "응엔델렌고족 요리", "은강갈족 요리", "은쿰비족 요리", "냐네카족 요리", "님바족 요리", "응강족 요리", "오빔분두족 요리", "움분두족 요리", "피그미족 요리", "바크웨족 요리", "루운드족 요리", "시마족 요리", "넨고족 요리", "시마마코마족 요리", "송고족 요리", "수쿠족 요리", "바세켈라 부시만족 요리", "야카족 요리", "야마족 요리", "욤베족 요리", "은뎀족 요리", "응동아족 요리", "르웨나족 요리", "아자족 요리", "애니족 요리", "바토누족 요리", "바루족 요리", "비알리족 요리", "보코족 요리", "보코냐족 요리", "부루족 요리", "불바족 요리", "카베족 요리", "초코시족 요리", "덴디족 요리", "단다와족 요리", "에데나고족 요리", "쿠라족 요리", "에웨족 요리", "퐁족 요리", "풀라니족 요리", "서부 풀라니족 요리", "풀풀데족 요리", "보르구 풀풀데족 요리", "아미나족 요리", "강암족 요리", "아이조족 요리", "시족 요리", "데피족 요리", "동부 크를라족 요리", "코타폰족 요리", "맥시족 요리", "삭스웨족 요리", "세토족 요리", "토핀족 요리", "톨리족 요리", "웨메족 요리", "Xwela족 요리", "젠족 요리", "미나족 요리", "구르마족 요리", "군족 요리", "하우사족 요리", "이카족 요리", "이다카족 요리", "이페족 요리", "이제족 요리", "까비예족 요리", "캄볼레족 요리", "코토콜리족 요리", "캉아족 요리", "라마족 요리", "룩파족 요리", "만딘카족 요리", "음벨리족 요리", "모코레족 요리", "모시족 요리", "나템바족 요리", "오탐마리족 요리", "필라족 요리", "피요베족 요리", "츄불족 요리", "와아마족 요리", "요아부족 요리", "와치족 요리", "요루바족 요리", "자르마족 요리", "아프리카너족 요리", "방골로가족 요리", "칼라가디족 요리", "비르와족 요리", "그시리쿠족 요리", "그위족 요리", "그사나족 요리", "일가나족 요리", "한다족 요리", "체사족 요리", "후아족 요리", "칼랑가족 요리", "쿠아족 요리", "쿵에코카족 요리", "쿵춤크베족 요리", "크소에족 요리", "순족 요리", "콴갈리족 요리", "남비아족 요리", "나로족 요리", "은데벨레족 요리", "수족 요리", "페디족 요리", "북소토족 요리", "세츠와나족 요리", "쇼나족 요리", "슈아족 요리", "소토족 요리", "수비아족 요리", "트샤라족 요리", "트샤오족 요리", "츠와나족 요리", "후루츠헤족 요리", "크웨나족 요리", "말레테족 요리", "몰레체족 요리", "응와케체족 요리", "응와토족 요리", "롤롱족 요리", "셀레카족 요리", "타와나족 요리", "틀로콰족 요리", "트스와퐁족 요리", "코사족 요리", "예이족 요리", "줄루족 요리", "밤바라족 요리", "바루바족 요리", "북부 비리포르족 요리", "블레족 요리", "잘쿠난족 요리", "보보 핑족 요리", "보보 마다레족 요리", "볼론족 요리", "티게 보조족 요리", "부아무족 요리", "부상가족 요리", "라아 라아 부아무족 요리", "트위 부아무족 요리", "다갈리 디울라족 요리", "왈라족 요리", "다가라족 요리", "토모 칸 칸 도곤족 요리", "도고세족 요리", "도고소족 요리", "디안족 요리", "줄라족 요리", "삼모고족 요리", "마시나 풀라니족 요리", "젤고지 풀라니족 요리", "구인족 요리", "파레파레 구르족 요리", "조토니족 요리", "간 칸족 요리", "동부 카라보로족 요리", "서부 카라보로족 요리", "카셈족 요리", "케족 요리", "키사족 요리", "코 콜시족 요리", "크페고족 요리", "풀세 쿠룸페족 요리", "쿠살족 요리", "렐라족 요리", "로비족 요리", "동부 마닌카족 요리", "다핑 마르카족 요리", "모바족 요리", "나티오로족 요리", "북부 누나족 요리", "남부 누나족 요리", "팔레니족 요리", "사마 파나족 요리", "프워족 요리", "레드 보보족 요리", "브와족 요리", "칼렘세 사모족 요리", "마야 사모족 요리", "사모 마티야족 요리", "남부 사모족 요리", "세모고족 요리", "중부 세누포족 요리", "나네리게 세누포족 요리", "니앙골로 세누포족 요리", "시아무족 요리", "시닌케레족 요리", "시살라족 요리", "훔부리 송가이족 요리", "로론 텐보족 요리", "티에포족 요리", "북부 투시안족 요리", "남부 투시안족 요리", "타마셰크 투아레그족 요리", "투르카족 요리", "비에모족 요리", "비게족 요리", "와라족 요리", "후투족 요리", "룬디족 요리", "츠와족 요리", "스와힐리족 요리", "투치족 요리", "아보족 요리", "아윙족 요리", "아쿰족 요리", "아마시족 요리", "암벨레족 요리", "아랍족 요리", "투르쿠족 요리", "아통족 요리", "바바족 요리", "바반족 요리", "바드웨족 요리", "바판지족 요리", "바포족 요리", "바피아족 요리", "백팍족 요리", "바푸멘족 요리", "바가라족 요리", "슈와 아랍족 요리", "바계레족 요리", "바카족 요리", "바코코족 요리", "바코레족 요리", "바코시족 요리", "바코움족 요리", "발리족 요리", "문가카족 요리", "발로족 요리", "바말리족 요리", "밤발랑족 요리", "밤빌리족 요리", "바메냐족 요리", "바밀레케-바콰족 요리", "바코아족 요리", "바밀레케-바멘주족 요리", "고말라족 요리", "바밀레케-바참족 요리", "바밀레케-페페족 요리", "바밀레케-메둠바족 요리", "바밀레케 은단족 요리", "바밀레케 응곰발레족 요리", "바밀레케 짱족 요리", "바무쿰빗족 요리", "바나게레족 요리", "바나나족 요리", "무세이족 요리", "방간도족 요리", "방고족 요리", "방골족 요리", "느소족 요리", "바롬비족 요리", "바사족 요리", "카메룬족 요리", "바사르족 요리", "은참족 요리", "바쏘시족 요리", "바탕안족 요리", "바테족 요리", "바티족 요리", "부시 바티족 요리", "베바족 요리", "베베족 요리", "베빌족 요리", "베체베족 요리", "비젠족 요리", "벨립족 요리", "베니족 요리", "벳싱가족 요리", "비바베팡족 요리", "비켈레비캐이족 요리", "비타레족 요리", "보베족 요리", "보콰켄뎀족 요리", "보키족 요리", "봄보코족 요리", "봄와리족 요리", "본켕족 요리", "불루팡족 요리", "불루에원도 크리올족 요리", "범족 요리", "부삼족 요리", "부왈족 요리", "칼라족 요리", "카메룬 크리올족 요리", "참바 다카족 요리", "참바 레코족 요리", "중족 요리", "쿠보족 요리", "다바족 요리", "데냐족 요리", "안양족 요리", "Dghwede족 요리", "디족족 요리", "딤봉족 요리", "장티족 요리", "도와야요족 요리", "두족족 요리", "두군족 요리", "사족 요리", "두그월족 요리", "덤불레족 요리", "두파족 요리", "조딘카족 요리", "에파이족 요리", "에피족 요리", "에작함족 요리", "에만족 요리", "에심비족 요리", "이톤족 요리", "에반족 요리", "이원족 요리", "팔리족 요리", "질북족 요리", "팡족 요리", "벤주베 펭가족 요리", "팡웨족 요리", "아다마와족 요리", "나이지리아족 요리", "풀베-게이족 요리", "풋족 요리", "가바르족 요리", "가바야족 요리", "음바도모족 요리", "노스웨스트족 요리", "가바야-엄마족 요리", "기달족 요리", "김메족 요리", "김니메족 요리", "기지가족 요리", "글라브다족 요리", "그리스족 요리", "구데족 요리", "구두족족 요리", "하우족 요리", "히데족 요리", "세디족 요리", "히주족 요리", "히나족 요리", "햐족 요리", "이비비족 요리", "이보족 요리", "이풀로족 요리", "아숨보족 요리", "이수족 요리", "이이브족 요리", "지미족 요리", "지나족 요리", "카바라카족 요리", "카코족 요리", "캄붐족 요리", "림붐족 요리", "캄캄족 요리", "캄웨족 요리", "카누리족 요리", "예르와족 요리", "가랑족 요리", "카리족 요리", "케라족 요리", "콜비라족 요리", "코마족 요리", "곤자족 요리", "코롭족 요리", "고신족 요리", "코토코족 요리", "아파데족 요리", "라관족 요리", "말베족 요리", "음파데족 요리", "므세르족 요리", "Kpe족 요리", "국족 요리", "구마주족 요리", "군두족 요리", "쿵족 요리", "쿠테족 요리", "과자족 요리", "라임뷔족 요리", "르파족 요리", "마다족 요리", "마파족 요리", "마제라족 요리", "마카족 요리", "맘비라족 요리", "만단궤족 요리", "만다라족 요리", "망바이족 요리", "망기족 요리", "만자족 요리", "마사족 요리", "마탈족 요리", "마자그웨이족 요리", "음바족 요리", "음부족 요리", "음베족 요리", "음비무족 요리", "음보족 요리", "음봉족 요리", "음북족 요리", "음붐족 요리", "메펠레족 요리", "메카족 요리", "멘가카족 요리", "멘까족 요리", "메레족 요리", "미종족 요리", "모푸족 요리", "몰록족 요리", "모노족 요리", "무바코족 요리", "무림바족 요리", "뭄족 요리", "무무예족 요리", "문당족 요리", "문다니족 요리", "무스곰족 요리", "물위족 요리", "무양족 요리", "은까네족 요리", "은멱족 요리", "은돌라족 요리", "은돕바메싱족 요리", "은돕바문까족 요리", "은드레메족 요리", "넨족 요리", "바넨족 요리", "은품족 요리", "Ngamambo족 요리", "Ngambay족 요리", "Ngemba족 요리", "Ngi족 요리", "Ngishe족 요리", "Ngo족 요리", "Ngomba족 요리", "Ngoshe Sama족 요리", "Ngumba족 요리", "Ngwe족 요리", "Bamileke-Foto족 요리", "Ngwo족 요리", "Nimbari족 요리", "Nyamnyam족 요리", "Nizaa족 요리", "Njen족 요리", "Nzin족 요리", "Njikum족 요리", "Njyem족 요리", "Nkom족 요리", "Nkongho족 요리", "Nomande족 요리", "Noni족 요리", "Nsari족 요리", "Akweto족 요리", "냥족 요리", "Nzakmbay족 요리", "Nzanyi족 요리", "Nzime족 요리", "오방밸리족 요리", "오쿠족 요리", "오사투족 요리", "파나족 요리", "페레족 요리", "페베족 요리", "병족 요리", "포병족 요리", "포도족 요리", "폴족 요리", "산고족 요리", "사라음바이족 요리", "샤와족 요리", "소족 요리", "포족 요리", "테르키족 요리", "티곤족 요리", "티카르족 요리", "티브족 요리", "투오툼족 요리", "투푸리족 요리", "우훔키족 요리", "유쿠벤족 요리", "우사카데족 요리", "벰고마바족 요리", "베레족 요리", "부테족 요리", "와와족 요리", "웨족 요리", "위데쿰족 요리", "워코족 요리", "웜족 요리", "우시족 요리", "바베씨족 요리", "우즈람족 요리", "얌바족 요리", "얌베타족 요리", "양벤족 요리", "야사족 요리", "조아족 요리", "줄고젬젝족 요리", "Ali족 요리", "아잔데족 요리", "Azande족 요리", "Fertit Baggara족 요리", "중남부 반다족 요리", "Togbo-Vara 반다족 요리", "서중부 반다족 요리", "Banda-Bambari족 요리", "Linda족 요리", "Banda-Banda족 요리", "Banda-Ndi족 요리", "Banda-Mbres족 요리", "Banda-Ndele족 요리", "Banda-Ngbugu족 요리", "Banda-Yangere족 요리", "Bangi족 요리", "Benkonjo족 요리", "Birri족 요리", "Bofi족 요리", "Bokoto족 요리", "Bomitaba족 요리", "Dagba족 요리", "Dendi족 요리", "Bagirmi Fulani족 요리", "Furu족 요리", "Gbanu족 요리", "북서부 Gbaya족 요리", "남서부 Gbaya족 요리", "Gbaya-Bossangoa족 요리", "Gbaya-Bouzum족 요리", "Gbayi족 요리", "Geme족 요리", "Gobu족 요리", "Kara Gula족 요리", "Kaba Dunjo족 요리", "Kaba족 요리", "Kabba-Laka족 요리", "Kako족 요리", "Fertit Kara족 요리", "Kpagua족 요리", "Kpatili족 요리", "Lutos족 요리", "Manja족 요리", "Mayeka족 요리", "Mbangi족 요리", "Mbanza족 요리", "Mbati족 요리", "Mbimu족 요리", "Mbum족 요리", "Monzombo족 요리", "Ngam족 요리", "Ngando족 요리", "Dingando족 요리", "Ngbaka Mabo족 요리", "Ngbaka Manza족 요리", "Ngombe족 요리", "Ngombe-Kaka족 요리", "Ngundi족 요리", "Nzakara족 요리", "Pande족 요리", "Bamassa 피그미족 요리", "Banziri 피그미족 요리", "Bayaka 피그미족 요리", "Buraka 피그미족 요리", "Gbanziri 피그미족 요리", "Gundi 피그미족 요리", "Runga족 요리", "Sango족 요리", "Sango Riverain족 요리", "Sara Kaba족 요리", "Sara Mbai족 요리", "Suma족 요리", "Vale족 요리", "Yakoma족 요리", "Yulu족 요리", "Abu Sharib족 요리", "Babalia족 요리", "Dekakire Baggara족 요리", "Hemat Baggara족 요리", "Bakha족 요리", "Barein족 요리", "Barma족 요리", "Bediondo Mbai족 요리", "Soliman 베두인족 요리", "Bernde족 요리", "Besme족 요리", "Bideyat족 요리", "Bidio족 요리", "Bilala족 요리", "Birgid족 요리", "Bokoruge족 요리", "Bolgo족 요리", "Bon Gula족 요리", "Boor족 요리", "Bua족 요리", "Buduma족 요리", "Bulgeda족 요리", "Dai족 요리", "Dari족 요리", "Dar Daju족 요리", "Daju족 요리", "Dangaleat족 요리", "Daza족 요리", "Disa족 요리", "Fanya족 요리", "Fongoro족 요리", "Adamawa Fulani족 요리", "Nigerian Fulani족 요리", "Fur족 요리", "Gablai족 요리", "Kabalai족 요리", "Gabri족 요리", "Gadang족 요리", "Gidar족 요리", "Gor족 요리", "Gori족 요리", "Goulai족 요리", "Gula Iro족 요리", "Gula족 요리", "Jaya족 요리", "Jegu족 요리", "Jongor족 요리", "Dionkor족 요리", "Kaba Demi족 요리", "Kaba Na족 요리", "Kado Herde족 요리", "Kajakse족 요리", "Kanembu족 요리", "Yerwa Kanuri족 요리", "Karang족 요리", "Karanga족 요리", "Kendeje족 요리", "Kenga족 요리", "Kibet족 요리", "Kim족 요리", "Kimre족 요리", "Koke족 요리", "Lagwan Kotoko족 요리", "Malgbe Kotoko족 요리", "Maslam Kotoko족 요리", "Mpade Kotoko족 요리", "Mser Kotoko족 요리", "Kreda족 요리", "Kujarge족 요리", "Kuka족 요리", "Kuo족 요리", "Kurumi족 요리", "Kulfe족 요리", "Kwang족 요리", "Lele족 요리", "Maba족 요리", "Mahamid족 요리", "Mangbai족 요리", "Mango족 요리", "Mararit족 요리", "Kulung Marba족 요리", "Marfa족 요리", "Masalit족 요리", "Massalat족 요리", "Mawa족 요리", "Mbara족 요리", "Medogo족 요리", "Mesme족 요리", "Mesmedje족 요리", "Miltu족 요리", "Amdang Mimi족 요리", "Mogum족 요리", "Mokoulou족 요리", "Mubi족 요리", "Mulgi족 요리", "Mundang족 요리", "Mulwi Musgum족 요리", "Nancere족 요리", "Ndam족 요리", "Ngete족 요리", "Nielim족 요리", "Peve족 요리", "Saba족 요리", "Sara Majingai-Ngama족 요리", "Sarwa족 요리", "Sinyar족 요리", "Sokoro족 요리", "Sabine Somrai족 요리", "Sungor족 요리", "Surbakhal족 요리", "Tama족 요리", "Temki Taram족 요리", "Tobanga족 요리", "Torom족 요리", "Teda Tubu족 요리", "Tumak족 요리", "Tunya족 요리", "Tupuri족 요리", "Ubi족 요리", "Zaghawa족 요리", "Zan Gula족 요리", "Zirenkel족 요리", "Alur족 요리", "Amba족 요리", "Angba족 요리", "Apakabeti족 요리", "Aushi족 요리", "Avukaya족 요리", "Baali족 요리", "Babango족 요리", "Bamwe족 요리", "Bangala족 요리", "Bangba족 요리", "Bangobango족 요리", "Barambu족 요리", "Beeke족 요리", "Bemba족 요리", "Bembe족 요리", "Bendi족 요리", "Binji족 요리", "Binza족 요리", "산림 Bira족 요리", "Boba족 요리", "Iboko Boko족 요리", "Boloki족 요리", "Bolondo족 요리", "Kasai Boma족 요리", "Bombongo족 요리", "Budu족 요리", "Buela족 요리", "Buja족 요리", "Bulia족 요리", "Bushoong족 요리", "Buyi족 요리", "Buzaba족 요리", "Bwa족 요리", "Bwile족 요리", "Bwisi족 요리", "Chokwe족 요리", "Dongo족 요리", "Dzando족 요리", "Dzing족 요리", "Efe족 요리", "Ekonda족 요리", "Foma족 요리", "Fuliro족 요리", "Gbendere족 요리", "Genja족 요리", "Genya족 요리", "Gilima족 요리", "Hamba족 요리", "Havu족 요리", "콩고 니요로 Hema족 요리", "Holoholo족 요리", "Hunde족 요리", "Hunganna족 요리", "르완다 후투족 요리", "Joba족 요리", "Kabwari족 요리", "Kaiku족 요리", "Bari Kakwa족 요리", "Kaliko족 요리", "Kango-Tshopo족 요리", "Kango-Uele족 요리", "Kanu족 요리", "Kanyok족 요리", "Kaonde족 요리", "Li-Kari-Li Kare족 요리", "Bari족 요리", "Lemba Kela족 요리", "Kele족 요리", "Kete족 요리", "Kimbundu족 요리", "Kinya-Mituku족 요리", "Kobo족 요리", "Koguru족 요리", "Kongo족 요리", "San Salvador Kongo족 요리", "Tuba Kongo족 요리", "Konzo족 요리", "Kpala족 요리", "북부 Luba족 요리", "Kumu족 요리", "Seba Kunda족 요리", "Kusu족 요리", "Kwami족 요리", "Kwese족 요리", "Lala-Bisa족 요리", "Lalia족 요리", "Lamba족 요리", "Lega족 요리", "Bashilele Lele족 요리", "Lendu족 요리", "Lengola족 요리", "Lese족 요리", "Likila족 요리", "Liko족 요리", "Lobala족 요리", "Logo족 요리", "Baloi Loi족 요리", "Lombi족 요리", "Lombo족 요리", "Lonzo족 요리", "Luba족 요리", "Luba-Hemba족 요리", "Luba-Lulua족 요리", "고지대 Lugbara족 요리", "Poto Lusengo족 요리", "Lwena Luvale족 요리", "Lwalwa족 요리", "Lwel족 요리", "Ma족 요리", "Ma'adi족 요리", "Mabaale족 요리", "Mamvu족 요리", "Mangbetu족 요리", "Mangbutu족 요리", "Shi Mashi족 요리", "Mayogo족 요리", "Mba족 요리", "Mbala족 요리", "Mbesa족 요리", "Imbo Mbo족 요리", "Mbole족 요리", "Mfinu족 요리", "Moingi족 요리", "Mongo족 요리", "Amono Mono족 요리", "Mpuon족 요리", "Mundu족 요리", "Mvuba족 요리", "Mwenga Lega족 요리", "Nande족 요리", "Ndaka족 요리", "Ndengese족 요리", "Ndobo족 요리", "Ndogo족 요리", "Ndolo족 요리", "Ndrulo족 요리", "Ndunga족 요리", "Ngbaka족 요리", "Ngbandi족 요리", "남부 Ngbandi족 요리", "Ngbinda족 요리", "Ngbundu족 요리", "Ngeti족 요리", "Ngoli족 요리", "Ngongo족 요리", "Ngundu족 요리", "Nkutu족 요리", "Ntomba족 요리", "Nyali족 요리", "Nyanga족 요리", "Nyanga-Li족 요리", "Nyindu족 요리", "Nzadi족 요리", "Okebu족 요리", "Ombo족 요리", "Omi족 요리", "Pambia족 요리", "Pelende족 요리", "Pende족 요리", "Peri족 요리", "평원 Bira족 요리", "Poke족 요리", "Asua 피그미족 요리", "Twa 피그미족 요리", "Ruund족 요리", "Saka족 요리", "Salampasu족 요리", "Samba족 요리", "Luba Garenganze Sanga족 요리", "Sengele족 요리", "Sere족 요리", "Soko족 요리", "Sonde족 요리", "Songo족 요리", "Songomeno족 요리", "Songora족 요리", "Songye족 요리", "콩고 스와힐리족 요리", "Tabwa족 요리", "Tagbo족 요리", "Tara Baaka족 요리", "중부 Teke족 요리", "동부 Teke족 요리", "Teke-Aboo족 요리", "Teke-Fuumu족 요리", "Tembo-Equateur족 요리", "Tembo-Kivu족 요리", "Tetela족
-const STORAGE_KEY = "mocked_recipe_data";
-const DB_STORAGE_KEY = "mocked_food_database";
-const categories = Array.from(new Set(defaultCategories));
+  <script>
+    const defaultCategories = [
+      "국", "탕", "찌개", "백반", "가정식", "쌈밥", "보리밥·잡곡밥", "솥밥·돌솥밥", "전·부침개", "두부요리", "나물·반찬", "푸드트럭요리", "시장음식", "길거리음식", "도시락", "채식·비건", "퓨전요리", "브런치", "버거", "샌드위치", "샐러드", "포케", "타코", "부리토", "피자", "파스타", "치킨", "덮밥", "라이스볼", "누들", "커리", "케밥", "핫도그", "프라이드치킨", "젓갈", "김치", "정찬", "사찰음식", "궁중음식", "전통찻집", "술", "해장음식", "면요리", "메밀요리", "분식", "전통간식", "전통떡", "빵", "롤빵", "디저트", "브라우니", "대형 케이크", "소형 케이크", "사탕", "과자", "쿠키", "비스킷", "크래커", "프로스팅", "필링", "파이", "타르트", "페이스트리", "크럼블", "코블러", "아이스크림", "냉동 디저트", "무스", "트라이플", "커스터드", "팬케이크", "와플", "크레페", "칠리", "커리", "딥", "스프레드", "살사", "계란 요리", "튀김", "그릴", "바비큐", "구운 파스타", "파스타", "반죽", "소스", "속을 채운 파스타", "피자", "칼조네", "패스트푸드", "야매요리", "샌드위치", "버거", "수프", "스튜", "원팟요리", "볶음 요리", "타코", "퀘사디아", "토스트", "크로스티니", "랩", "부리토", "무알음료", "알콜음료", "칵테일", "처트니", "피클", "렐리시", "발효음식", "잼", "젤리", "보존음식", "드레싱", "마리네이드", "밥 요리", "샐러드", "디저트용 소스", "생선용 소스", "육류용 소스", "가금류용 소스", "소스", "육수", "스터핑", "계란요리", "생선요리", "해산물요리", "과일요리", "곡물요리", "콩요리", "파스타요리", "허브요리", "향신료요리", "육류요리", "가금류요리", "수렵육요리", "채소요리", "비건요리", "애프터눈 티요리", "전채요리", "아침식사요리", "브런치요리", "카나페요리", "오르되브르요리", "디저트요리", "일반 코스요리", "점심요리", "주요리", "메인 코스요리", "곁들임 요리", "타파스요리", "메제요리", "스낵요리", "저녁식사", "명절/홀리데이", "산동요리", "제남요리", "교동요리", "공부요리", "청도요리", "연대요리", "위해요리", "유방요리", "치박요리", "태안요리", "임청요리", "덕주요리", "빈주요리", "동영요리", "일조요리", "하택요리", "랴오청요리", "곡부요리", "태산요리", "황하삼각주요리", "교주요리", "즉묵요리", "봉래요리", "영성요리", "문등요리", "룽커우요리", "조주요리", "장구요리", "평도요리", "안구요리", "수광요리", "제성요리", "고밀요리", "청주요리", "임기요리", "몽음요리", "비현요리", "창산요리", "창읍요리", "고원요리", "하진요리", "양곡요리", "신태요리", "비성요리", "영성요리", "곤산요리", "광동요리", "광주요리", "조주요리", "고급 조주요리", "객가요리", "순덕요리", "불산요리", "남해요리", "번우요리", "증성요리", "종화요리", "화도요리", "청원요리", "영덕요리", "소관요리", "곡강요리", "남웅요리", "심천요리", "동관요리", "혜주요리", "하원요리", "매주요리", "흥녕요리", "조양요리", "산두요리", "조안요리", "조주요리", "제양요리", "보녕요리", "푸닝요리", "육풍요리", "산미요리", "강문요리", "신회요리", "태산요리", "개평요리", "은평요리", "중산요리", "주해요리", "양강요리", "양춘요리", "무명요리", "전백요리", "잔강요리", "뇌주요리", "고주요리", "신의요리", "운부요리", "나정요리", "운안요리", "사천요리", "성도요리", "중경요리", "천미요리", "자공요리", "내강요리", "낙산요리", "미산요리", "아미산요리", "남충요리", "수녕요리", "광안요리", "달주요리", "파중요리", "의빈요리", "노주요리", "덕양요리", "면양요리", "광원요리", "야안요리", "아안요리", "간지요리", "아바요리", "량산요리", "서창요리", "판즈화요리", "두장옌요리", "팽주요리", "면죽요리", "랑중요리", "완원요리", "만주요리", "영천요리", "합천요리", "만성요리", "강진요리", "영창요리", "개주요리", "기강요리", "남천요리", "수산요리", "호남요리", "장사요리", "상탄요리", "주주요리", "형양요리", "소양요리", "악양요리", "상덕요리", "익양요리", "영주요리", "회화요리", "루저우요리", "장가계요리", "길수요리", "영릉요리", "도원요리", "임례요리", "도현요리", "신화요리", "안향요리", "한수요리", "형산요리", "기동요리", "동안요리", "신전요리", "자흥요리", "유현요리", "차릉요리", "염릉요리", "복건요리", "복주요리", "민남요리", "민동요리", "민서요리", "천주요리", "장주요리", "하문요리", "남평요리", "삼명요리", "용암요리", "영안요리", "복청요리", "장락요리", "민후요리", "연강요리", "나원요리", "복안요리", "복정요리", "고전요리", "주녕요리", "하포요리", "수녕요리", "선유요리", "보전요리", "혜안요리", "안계요리", "영춘요리", "덕화요리", "남안요리", "진강요리", "석사자요리", "동안요리", "장태요리", "용해요리", "남정요리", "조안요리", "화안요리", "장평요리", "영정요리", "상항요리", "무평요리", "장정요리", "강서요리", "남창요리", "구강요리", "경덕진요리", "평향요리", "신여요리", "구강요리", "영수요리", "길안요리", "이춘요리", "푸저우요리", "상요리", "감주요리", "난풍요리", "무주요리", "정강산요리", "풍성요리", "고안요리", "진현요리", "안의요리", "수천요리", "태화요리", "영신요리", "만안요리", "수금요리", "남강요리", "대여요리", "신풍요리", "용남요리", "안원요리", "회창요리", "절강요리", "항주요리", "영파요리", "소흥요리", "온주요리", "호주요리", "가흥요리", "금화요리", "구주요리", "태주요리", "여수요리", "의오요리", "제기요리", "동양요리", "란계요리", "영강요리", "포강요리", "무의요리", "반안요리", "천태요리", "선거요리", "임해요리", "온령요리", "옥환요리", "평양요리", "창남요리", "서안요리", "가선요리", "해녕요리", "동향요리", "평호요리", "안길요리", "덕청요리", "장흥요리", "장쑤요리", "남경요리", "소주요리", "무석요리", "상주요리", "진강요리", "양주요리", "남통요리", "서주요리", "염성요리", "회안요리", "연운항요리", "태주요리", "숙천요리", "회양요리", "강남요리", "강소요리", "곤산요리", "태창요리", "상숙요리", "오강요리", "의정요리", "고우요리", "태흥요리", "정강요리", "흥화요리", "동대요리", "여고요리", "계동요리", "해문요리", "여동요리", "풍현요리", "패현요리", "신의요리", "수녕요리", "비현요리", "사양요리", "건호요리", "보응요리", "금호요리", "홍택요리", "안후이요리", "합비요리", "무호요리", "방부요리", "안경요리", "황산요리", "툰시요리", "마안산요리", "화이난요리", "화이베이요리", "동릉요리", "푸양요리", "숙주요리", "육안요리", "선성요리", "지주요리", "차오후요리", "허페이요리", "징더전요리", "후베이요리", "무한요리", "황석요리", "십언요리", "이창요리", "양양요리", "형문요리", "효감요리", "황강요리", "함녕요리", "수주요리", "은시요리", "경주요리", "선도요리", "천문요리", "잠강요리", "마성요리", "홍안요리", "운몽요리", "한천요리", "종상요리", "당양요리", "송자요리", "석수요리", "공성요리", "하남요리", "정주요리", "개봉요리", "낙양요리", "안양요리", "신향요리", "허창요리", "평정산요리", "남양요리", "상구요리", "주마점요리", "신양요리", "초작요리", "학벽요리", "삼문협요리", "주구요리", "등주요리", "진양요리", "개봉요리", "중경요리", "천진요리", "북경요리", "동북요리", "요녕요리", "심양요리", "대련요리", "길림요리", "장춘요리", "흑룡강요리", "하얼빈요리", "연변요리", "내몽골요리", "운남요리", "귀주요리", "광서요리", "계림요리", "남녕요리", "운남요리", "곤명요리", "대리요리", "리장요리", "티베트요리", "서장요리", "신강요리", "위구르요리", "감숙요리", "섬서요리", "서안요리", "산서요리", "태원요리", "하북요리", "석가장요리", "호북요리", "청해요리", "영하요리", "해남요리", "하이난요리", "중국술", "중식포차요리", "중식코스요리", "중식밥집", "중식도시락", "중식분식", "중식야시장", "중식 퓨전요리", "함경도", "평안도", "황해도", "서울", "경기도", "강원도", "충청도", "전라도", "경상도", "일본", "몽골", "대만", "홍콩", "마카오", "대한민국", "북한", "중국", "베트남", "태국", "캄보디아", "라오스", "미얀마", "말레이시아", "싱가포르", "인도네시아", "브루나이", "필리핀", "동티모르", "인도", "파키스탄", "방글라데시", "네팔", "부탄", "스리랑카", "몰디브", "아프가니스탄", "사우디아라비아", "아랍에미리트", "카타르", "쿠웨이트", "바레인", "오만", "예멘", "이라크", "이란", "시리아", "레바논", "요르단", "이스라엘", "팔레스타인", "터키", "키프로스", "아르메니아", "아제르바이잔", "조지아", "카자흐스탄", "우즈베키스탄", "투르크메니스탄", "키르기스스탄", "타지키스탄", "러시아", "우크라이나", "벨라루스", "몰도바", "루마니아", "불가리아", "세르비아", "몬테네그로", "북마케도니아", "보스니아 헤르체고비나", "코소보", "영국", "아일랜드", "프랑스", "벨기에", "네덜란드", "룩셈부르크", "독일", "오스트리아", "스위스", "리히텐슈타인", "모나코", "스페인", "포르투갈", "이탈리아", "그리스", "알바니아", "크로아티아", "슬로베니아", "몰타", "안도라", "산마리노", "바티칸", "노르웨이", "스웨덴", "덴마크", "핀란드", "아이슬란드", "폴란드", "체코", "슬로바키아", "헝가리", "에스토니아", "라트비아", "리투아니아", "키프로스", "가나", "가봉", "감비아", "기니", "기니비사우", "나미비아", "나이지리아", "남수단", "남아프리카공화국", "니제르", "라이베리아", "레소토", "르완다", "리비아", "마다가스카르", "말라위", "말리", "모로코", "모리셔스", "모리타니", "모잠비크", "베냉", "보츠와나", "부룬디", "부르키나파소", "상투메 프린시페", "서사하라", "세네갈", "세이셸", "소말리아", "수단", "시에라리온", "알제리", "앙골라", "에리트레아", "에스와티니", "에티오피아", "우간다", "이집트", "잠비아", "적도 기니", "중앙아프리카공화국", "지부티", "짐바브웨", "차드", "카메룬", "카보베르데", "케냐", "코모로", "코트디부아르", "콩고 공화국", "콩고 민주 공화국", "탄자니아", "토고", "튀니지", "캐나다", "미국", "멕시코", "그린란드", "버뮤다", "생피에르 미클롱", "과테말라", "벨리즈", "엘살바도르", "온두라스", "니카라과", "코스타리카", "파나마", "쿠바", "자메이카", "아이티", "도미니카공화국", "바하마", "바베이도스", "트리니다드 토바고", "그레나다", "세인트루시아", "세인트빈센트 그레나딘", "도미니카", "앤티가 바부다", "세인트키츠 네비스", "아루바", "퀴라소", "케이맨 제도", "버진아일랜드", "푸에르토리코", "과들루프", "마르티니크", "브라질", "아르헨티나", "칠레", "페루", "볼리비아", "파라과이", "우루과이", "콜롬비아", "베네수엘라", "에콰도르", "가이아나", "수리남", "프랑스령 기아나", "포클랜드 제도", "호주", "뉴질랜드", "파푸아뉴기니", "피지", "사모아", "통가", "바누아투", "솔로몬 제도", "미크로네시아 연방", "마셜 제도", "팔라우", "키리바시", "나우루", "투발루", "쿡 제도", "니우에", "뉴칼레도니아", "프랑스령 폴리네시아", "괌", "북마리아나 제도", "미국령 사모아", "크리스마스섬", "코코스 제도", "노퍽섬", "암보족 요리", "볼로족 요리", "카보베르족 요리", "초웨족 요리", "딤바족 요리", "기리쿠족 요리", "헤이쿰족 요리", "헤레로족 요리", "홀루족 요리", "훈구족 요리", "김분두족 요리", "쿵에코칼족 요리", "쿵쯧웨족 요리", "쿠발레족 요리", "관두족 요리", "관야마족 요리", "셩족 요리", "쑨족 요리", "랄리족 요리", "링갈라족 요리", "로지족 요리", "루바루아족 요리", "루차지족 요리", "루임비족 요리", "룬다족 요리", "루발레족 요리", "루야나족 요리", "광갈리족 요리", "르왈와족 요리", "마시족 요리", "음방갈족 요리", "음부쿠슈족 요리", "음분다족 요리", "음핀다족 요리", "무하카오족 요리", "은돔베족 요리", "응엔델렌고족 요리", "은강갈족 요리", "은쿰비족 요리", "냐네카족 요리", "님바족 요리", "응강족 요리", "오빔분두족 요리", "움분두족 요리", "피그미족 요리", "바크웨족 요리", "루운드족 요리", "시마족 요리", "넨고족 요리", "시마마코마족 요리", "송고족 요리", "수쿠족 요리", "바세켈라 부시만족 요리", "야카족 요리", "야마족 요리", "욤베족 요리", "은뎀족 요리", "응동아족 요리", "르웨나족 요리", "아자족 요리", "애니족 요리", "바토누족 요리", "바루족 요리", "비알리족 요리", "보코족 요리", "보코냐족 요리", "부루족 요리", "불바족 요리", "카베족 요리", "초코시족 요리", "덴디족 요리", "단다와족 요리", "에데나고족 요리", "쿠라족 요리", "에웨족 요리", "퐁족 요리", "풀라니족 요리", "서부 풀라니족 요리", "풀풀데족 요리", "보르구 풀풀데족 요리", "아미나족 요리", "강암족 요리", "아이조족 요리", "시족 요리", "데피족 요리", "동부 크를라족 요리", "코타폰족 요리", "맥시족 요리", "삭스웨족 요리", "세토족 요리", "토핀족 요리", "톨리족 요리", "웨메족 요리", "Xwela족 요리", "젠족 요리", "미나족 요리", "구르마족 요리", "군족 요리", "하우사족 요리", "이카족 요리", "이다카족 요리", "이페족 요리", "이제족 요리", "까비예족 요리", "캄볼레족 요리", "코토콜리족 요리", "캉아족 요리", "라마족 요리", "룩파족 요리", "만딘카족 요리", "음벨리족 요리", "모코레족 요리", "모시족 요리", "나템바족 요리", "오탐마리족 요리", "필라족 요리", "피요베족 요리", "츄불족 요리", "와아마족 요리", "요아부족 요리", "와치족 요리", "요루바족 요리", "자르마족 요리", "아프리카너족 요리", "방골로가족 요리", "칼라가디족 요리", "비르와족 요리", "그시리쿠족 요리", "그위족 요리", "그사나족 요리", "일가나족 요리", "한다족 요리", "체사족 요리", "후아족 요리", "칼랑가족 요리", "쿠아족 요리", "쿵에코카족 요리", "쿵춤크베족 요리", "크소에족 요리", "순족 요리", "콴갈리족 요리", "남비아족 요리", "나로족 요리", "은데벨레족 요리", "수족 요리", "페디족 요리", "북소토족 요리", "세츠와나족 요리", "쇼나족 요리", "슈아족 요리", "소토족 요리", "수비아족 요리", "트샤라족 요리", "트샤오족 요리", "츠와나족 요리", "후루츠헤족 요리", "크웨나족 요리", "말레테족 요리", "몰레체족 요리", "응와케체족 요리", "응와토족 요리", "롤롱족 요리", "셀레카족 요리", "타와나족 요리", "틀로콰족 요리", "트스와퐁족 요리", "코사족 요리", "예이족 요리", "줄루족 요리", "밤바라족 요리", "바루바족 요리", "북부 비리포르족 요리", "블레족 요리", "잘쿠난족 요리", "보보 핑족 요리", "보보 마다레족 요리", "볼론족 요리", "티게 보조족 요리", "부아무족 요리", "부상가족 요리", "라아 라아 부아무족 요리", "트위 부아무족 요리", "다갈리 디울라족 요리", "왈라족 요리", "다가라족 요리", "토모 칸 칸 도곤족 요리", "도고세족 요리", "도고소족 요리", "디안족 요리", "줄라족 요리", "삼모고족 요리", "마시나 풀라니족 요리", "젤고지 풀라니족 요리", "구인족 요리", "파레파레 구르족 요리", "조토니족 요리", "간 칸족 요리", "동부 카라보로족 요리", "서부 카라보로족 요리", "카셈족 요리", "케족 요리", "키사족 요리", "코 콜시족 요리", "크페고족 요리", "풀세 쿠룸페족 요리", "쿠살족 요리", "렐라족 요리", "로비족 요리", "동부 마닌카족 요리", "다핑 마르카족 요리", "모바족 요리", "나티오로족 요리", "북부 누나족 요리", "남부 누나족 요리", "팔레니족 요리", "사마 파나족 요리", "프워족 요리", "레드 보보족 요리", "브와족 요리", "칼렘세 사모족 요리", "마야 사모족 요리", "사모 마티야족 요리", "남부 사모족 요리", "세모고족 요리", "중부 세누포족 요리", "나네리게 세누포족 요리", "니앙골로 세누포족 요리", "시아무족 요리", "시닌케레족 요리", "시살라족 요리", "훔부리 송가이족 요리", "로론 텐보족 요리", "티에포족 요리", "북부 투시안족 요리", "남부 투시안족 요리", "타마셰크 투아레그족 요리", "투르카족 요리", "비에모족 요리", "비게족 요리", "와라족 요리", "후투족 요리", "룬디족 요리", "츠와족 요리", "스와힐리족 요리", "투치족 요리", "아보족 요리", "아윙족 요리", "아쿰족 요리", "아마시족 요리", "암벨레족 요리", "아랍족 요리", "투르쿠족 요리", "아통족 요리", "바바족 요리", "바반족 요리", "바드웨족 요리", "바판지족 요리", "바포족 요리", "바피아족 요리", "백팍족 요리", "바푸멘족 요리", "바가라족 요리", "슈와 아랍족 요리", "바계레족 요리", "바카족 요리", "바코코족 요리", "바코레족 요리", "바코시족 요리", "바코움족 요리", "발리족 요리", "문가카족 요리", "발로족 요리", "바말리족 요리", "밤발랑족 요리", "밤빌리족 요리", "바메냐족 요리", "바밀레케-바콰족 요리", "바코아족 요리", "바밀레케-바멘주족 요리", "고말라족 요리", "바밀레케-바참족 요리", "바밀레케-페페족 요리", "바밀레케-메둠바족 요리", "바밀레케 은단족 요리", "바밀레케 응곰발레족 요리", "바밀레케 짱족 요리", "바무쿰빗족 요리", "바나게레족 요리", "바나나족 요리", "무세이족 요리", "방간도족 요리", "방고족 요리", "방골족 요리", "느소족 요리", "바롬비족 요리", "바사족 요리", "카메룬족 요리", "바사르족 요리", "은참족 요리", "바쏘시족 요리", "바탕안족 요리", "바테족 요리", "바티족 요리", "부시 바티족 요리", "베바족 요리", "베베족 요리", "베빌족 요리", "베체베족 요리", "비젠족 요리", "벨립족 요리", "베니족 요리", "벳싱가족 요리", "비바베팡족 요리", "비켈레비캐이족 요리", "비타레족 요리", "보베족 요리", "보콰켄뎀족 요리", "보키족 요리", "봄보코족 요리", "봄와리족 요리", "본켕족 요리", "불루팡족 요리", "불루에원도 크리올족 요리", "범족 요리", "부삼족 요리", "부왈족 요리", "칼라족 요리", "카메룬 크리올족 요리", "참바 다카족 요리", "참바 레코족 요리", "중족 요리", "쿠보족 요리", "다바족 요리", "데냐족 요리", "안양족 요리", "Dghwede족 요리", "디족족 요리", "딤봉족 요리", "장티족 요리", "도와야요족 요리", "두족족 요리", "두군족 요리", "사족 요리", "두그월족 요리", "덤불레족 요리", "두파족 요리", "조딘카족 요리", "에파이족 요리", "에피족 요리", "에작함족 요리", "에만족 요리", "에심비족 요리", "이톤족 요리", "에반족 요리", "이원족 요리", "팔리족 요리", "질북족 요리", "팡족 요리", "벤주베 펭가족 요리", "팡웨족 요리", "아다마와족 요리", "나이지리아족 요리", "풀베-게이족 요리", "풋족 요리", "가바르족 요리", "가바야족 요리", "음바도모족 요리", "노스웨스트족 요리", "가바야-엄마족 요리", "기달족 요리", "김메족 요리", "김니메족 요리", "기지가족 요리", "글라브다족 요리", "그리스족 요리", "구데족 요리", "구두족족 요리", "하우족 요리", "히데족 요리", "세디족 요리", "히주족 요리", "히나족 요리", "햐족 요리", "이비비족 요리", "이보족 요리", "이풀로족 요리", "아숨보족 요리", "이수족 요리", "이이브족 요리", "지미족 요리", "지나족 요리", "카바라카족 요리", "카코족 요리", "캄붐족 요리", "림붐족 요리", "캄캄족 요리", "캄웨족 요리", "카누리족 요리", "예르와족 요리", "가랑족 요리", "카리족 요리", "케라족 요리", "콜비라족 요리", "코마족 요리", "곤자족 요리", "코롭족 요리", "고신족 요리", "코토코족 요리", "아파데족 요리", "라관족 요리", "말베족 요리", "음파데족 요리", "므세르족 요리", "Kpe족 요리", "국족 요리", "구마주족 요리", "군두족 요리", "쿵족 요리", "쿠테족 요리", "과자족 요리", "라임뷔족 요리", "르파족 요리", "마다족 요리", "마파족 요리", "마제라족 요리", "마카족 요리", "맘비라족 요리", "만단궤족 요리", "만다라족 요리", "망바이족 요리", "망기족 요리", "만자족 요리", "마사족 요리", "마탈족 요리", "마자그웨이족 요리", "음바족 요리", "음부족 요리", "음베족 요리", "음비무족 요리", "음보족 요리", "음봉족 요리", "음북족 요리", "음붐족 요리", "메펠레족 요리", "메카족 요리", "멘가카족 요리", "멘까족 요리", "메레족 요리", "미종족 요리", "모푸족 요리", "몰록족 요리", "모노족 요리", "무바코족 요리", "무림바족 요리", "뭄족 요리", "무무예족 요리", "문당족 요리", "문다니족 요리", "무스곰족 요리", "물위족 요리", "무양족 요리", "은까네족 요리", "은멱족 요리", "은돌라족 요리", "은돕바메싱족 요리", "은돕바문까족 요리", "은드레메족 요리", "넨족 요리", "바넨족 요리", "은품족 요리", "Ngamambo족 요리", "Ngambay족 요리", "Ngemba족 요리", "Ngi족 요리", "Ngishe족 요리", "Ngo족 요리", "Ngomba족 요리", "Ngoshe Sama족 요리", "Ngumba족 요리", "Ngwe족 요리", "Bamileke-Foto족 요리", "Ngwo족 요리", "Nimbari족 요리", "Nyamnyam족 요리", "Nizaa족 요리", "Njen족 요리", "Nzin족 요리", "Njikum족 요리", "Njyem족 요리", "Nkom족 요리", "Nkongho족 요리", "Nomande족 요리", "Noni족 요리", "Nsari족 요리", "Akweto족 요리", "냥족 요리", "Nzakmbay족 요리", "Nzanyi족 요리", "Nzime족 요리", "오방밸리족 요리", "오쿠족 요리", "오사투족 요리", "파나족 요리", "페레족 요리", "페베족 요리", "병족 요리", "포병족 요리", "포도족 요리", "폴족 요리", "산고족 요리", "사라음바이족 요리", "샤와족 요리", "소족 요리", "포족 요리", "테르키족 요리", "티곤족 요리", "티카르족 요리", "티브족 요리", "투오툼족 요리", "투푸리족 요리", "우훔키족 요리", "유쿠벤족 요리", "우사카데족 요리", "벰고마바족 요리", "베레족 요리", "부테족 요리", "와와족 요리", "웨족 요리", "위데쿰족 요리", "워코족 요리", "웜족 요리", "우시족 요리", "바베씨족 요리", "우즈람족 요리", "얌바족 요리", "얌베타족 요리", "양벤족 요리", "야사족 요리", "조아족 요리", "줄고젬젝족 요리", "Ali족 요리", "아잔데족 요리", "Azande족 요리", "Fertit Baggara족 요리", "중남부 반다족 요리", "Togbo-Vara 반다족 요리", "서중부 반다족 요리", "Banda-Bambari족 요리", "Linda족 요리", "Banda-Banda족 요리", "Banda-Ndi족 요리", "Banda-Mbres족 요리", "Banda-Ndele족 요리", "Banda-Ngbugu족 요리", "Banda-Yangere족 요리", "Bangi족 요리", "Benkonjo족 요리", "Birri족 요리", "Bofi족 요리", "Bokoto족 요리", "Bomitaba족 요리", "Dagba족 요리", "Dendi족 요리", "Bagirmi Fulani족 요리", "Furu족 요리", "Gbanu족 요리", "북서부 Gbaya족 요리", "남서부 Gbaya족 요리", "Gbaya-Bossangoa족 요리", "Gbaya-Bouzum족 요리", "Gbayi족 요리", "Geme족 요리", "Gobu족 요리", "Kara Gula족 요리", "Kaba Dunjo족 요리", "Kaba족 요리", "Kabba-Laka족 요리", "Kako족 요리", "Fertit Kara족 요리", "Kpagua족 요리", "Kpatili족 요리", "Lutos족 요리", "Manja족 요리", "Mayeka족 요리", "Mbangi족 요리", "Mbanza족 요리", "Mbati족 요리", "Mbimu족 요리", "Mbum족 요리", "Monzombo족 요리", "Ngam족 요리", "Ngando족 요리", "Dingando족 요리", "Ngbaka Mabo족 요리", "Ngbaka Manza족 요리", "Ngombe족 요리", "Ngombe-Kaka족 요리", "Ngundi족 요리", "Nzakara족 요리", "Pande족 요리", "Bamassa 피그미족 요리", "Banziri 피그미족 요리", "Bayaka 피그미족 요리", "Buraka 피그미족 요리", "Gbanziri 피그미족 요리", "Gundi 피그미족 요리", "Runga족 요리", "Sango족 요리", "Sango Riverain족 요리", "Sara Kaba족 요리", "Sara Mbai족 요리", "Suma족 요리", "Vale족 요리", "Yakoma족 요리", "Yulu족 요리", "Abu Sharib족 요리", "Babalia족 요리", "Dekakire Baggara족 요리", "Hemat Baggara족 요리", "Bakha족 요리", "Barein족 요리", "Barma족 요리", "Bediondo Mbai족 요리", "Soliman 베두인족 요리", "Bernde족 요리", "Besme족 요리", "Bideyat족 요리", "Bidio족 요리", "Bilala족 요리", "Birgid족 요리", "Bokoruge족 요리", "Bolgo족 요리", "Bon Gula족 요리", "Boor족 요리", "Bua족 요리", "Buduma족 요리", "Bulgeda족 요리", "Dai족 요리", "Dari족 요리", "Dar Daju족 요리", "Daju족 요리", "Dangaleat족 요리", "Daza족 요리", "Disa족 요리", "Fanya족 요리", "Fongoro족 요리", "Adamawa Fulani족 요리", "Nigerian Fulani족 요리", "Fur족 요리", "Gablai족 요리", "Kabalai족 요리", "Gabri족 요리", "Gadang족 요리", "Gidar족 요리", "Gor족 요리", "Gori족 요리", "Goulai족 요리", "Gula Iro족 요리", "Gula족 요리", "Jaya족 요리", "Jegu족 요리", "Jongor족 요리", "Dionkor족 요리", "Kaba Demi족 요리", "Kaba Na족 요리", "Kado Herde족 요리", "Kajakse족 요리", "Kanembu족 요리", "Yerwa Kanuri족 요리", "Karang족 요리", "Karanga족 요리", "Kendeje족 요리", "Kenga족 요리", "Kibet족 요리", "Kim족 요리", "Kimre족 요리", "Koke족 요리", "Lagwan Kotoko족 요리", "Malgbe Kotoko족 요리", "Maslam Kotoko족 요리", "Mpade Kotoko족 요리", "Mser Kotoko족 요리", "Kreda족 요리", "Kujarge족 요리", "Kuka족 요리", "Kuo족 요리", "Kurumi족 요리", "Kulfe족 요리", "Kwang족 요리", "Lele족 요리", "Maba족 요리", "Mahamid족 요리", "Mangbai족 요리", "Mango족 요리", "Mararit족 요리", "Kulung Marba족 요리", "Marfa족 요리", "Masalit족 요리", "Massalat족 요리", "Mawa족 요리", "Mbara족 요리", "Medogo족 요리", "Mesme족 요리", "Mesmedje족 요리", "Miltu족 요리", "Amdang Mimi족 요리", "Mogum족 요리", "Mokoulou족 요리", "Mubi족 요리", "Mulgi족 요리", "Mundang족 요리", "Mulwi Musgum족 요리", "Nancere족 요리", "Ndam족 요리", "Ngete족 요리", "Nielim족 요리", "Peve족 요리", "Saba족 요리", "Sara Majingai-Ngama족 요리", "Sarwa족 요리", "Sinyar족 요리", "Sokoro족 요리", "Sabine Somrai족 요리", "Sungor족 요리", "Surbakhal족 요리", "Tama족 요리", "Temki Taram족 요리", "Tobanga족 요리", "Torom족 요리", "Teda Tubu족 요리", "Tumak족 요리", "Tunya족 요리", "Tupuri족 요리", "Ubi족 요리", "Zaghawa족 요리", "Zan Gula족 요리", "Zirenkel족 요리", "Alur족 요리", "Amba족 요리", "Angba족 요리", "Apakabeti족 요리", "Aushi족 요리", "Avukaya족 요리", "Baali족 요리", "Babango족 요리", "Bamwe족 요리", "Bangala족 요리", "Bangba족 요리", "Bangobango족 요리", "Barambu족 요리", "Beeke족 요리", "Bemba족 요리", "Bembe족 요리", "Bendi족 요리", "Binji족 요리", "Binza족 요리", "산림 Bira족 요리", "Boba족 요리", "Iboko Boko족 요리", "Boloki족 요리", "Bolondo족 요리", "Kasai Boma족 요리", "Bombongo족 요리", "Budu족 요리", "Buela족 요리", "Buja족 요리", "Bulia족 요리", "Bushoong족 요리", "Buyi족 요리", "Buzaba족 요리", "Bwa족 요리", "Bwile족 요리", "Bwisi족 요리", "Chokwe족 요리", "Dongo족 요리", "Dzando족 요리", "Dzing족 요리", "Efe족 요리", "Ekonda족 요리", "Foma족 요리", "Fuliro족 요리", "Gbendere족 요리", "Genja족 요리", "Genya족 요리", "Gilima족 요리", "Hamba족 요리", "Havu족 요리", "콩고 니요로 Hema족 요리", "Holoholo족 요리", "Hunde족 요리", "Hunganna족 요리", "르완다 후투족 요리", "Joba족 요리", "Kabwari족 요리", "Kaiku족 요리", "Bari Kakwa족 요리", "Kaliko족 요리", "Kango-Tshopo족 요리", "Kango-Uele족 요리", "Kanu족 요리", "Kanyok족 요리", "Kaonde족 요리", "Li-Kari-Li Kare족 요리", "Bari족 요리", "Lemba Kela족 요리", "Kele족 요리", "Kete족 요리", "Kimbundu족 요리", "Kinya-Mituku족 요리", "Kobo족 요리", "Koguru족 요리", "Kongo족 요리", "San Salvador Kongo족 요리", "Tuba Kongo족 요리", "Konzo족 요리", "Kpala족 요리", "북부 Luba족 요리", "Kumu족 요리", "Seba Kunda족 요리", "Kusu족 요리", "Kwami족 요리", "Kwese족 요리", "Lala-Bisa족 요리", "Lalia족 요리", "Lamba족 요리", "Lega족 요리", "Bashilele Lele족 요리", "Lendu족 요리", "Lengola족 요리", "Lese족 요리", "Likila족 요리", "Liko족 요리", "Lobala족 요리", "Logo족 요리", "Baloi Loi족 요리", "Lombi족 요리", "Lombo족 요리", "Lonzo족 요리", "Luba족 요리", "Luba-Hemba족 요리", "Luba-Lulua족 요리", "고지대 Lugbara족 요리", "Poto Lusengo족 요리", "Lwena Luvale족 요리", "Lwalwa족 요리", "Lwel족 요리", "Ma족 요리", "Ma'adi족 요리", "Mabaale족 요리", "Mamvu족 요리", "Mangbetu족 요리", "Mangbutu족 요리", "Shi Mashi족 요리", "Mayogo족 요리", "Mba족 요리", "Mbala족 요리", "Mbesa족 요리", "Imbo Mbo족 요리", "Mbole족 요리", "Mfinu족 요리", "Moingi족 요리", "Mongo족 요리", "Amono Mono족 요리", "Mpuon족 요리", "Mundu족 요리", "Mvuba족 요리", "Mwenga Lega족 요리", "Nande족 요리", "Ndaka족 요리", "Ndengese족 요리", "Ndobo족 요리", "Ndogo족 요리", "Ndolo족 요리", "Ndrulo족 요리", "Ndunga족 요리", "Ngbaka족 요리", "Ngbandi족 요리", "남부 Ngbandi족 요리", "Ngbinda족 요리", "Ngbundu족 요리", "Ngeti족 요리", "Ngoli족 요리", "Ngongo족 요리", "Ngundu족 요리", "Nkutu족 요리", "Ntomba족 요리", "Nyali족 요리", "Nyanga족 요리", "Nyanga-Li족 요리", "Nyindu족 요리", "Nzadi족 요리", "Okebu족 요리", "Ombo족 요리", "Omi족 요리", "Pambia족 요리", "Pelende족 요리", "Pende족 요리", "Peri족 요리", "평원 Bira족 요리", "Poke족 요리", "Asua 피그미족 요리", "Twa 피그미족 요리", "Ruund족 요리", "Saka족 요리", "Salampasu족 요리", "Samba족 요리", "Luba Garenganze Sanga족 요리", "Sengele족 요리", "Sere족 요리", "Soko족 요리", "Sonde족 요리", "Songo족 요리", "Songomeno족 요리", "Songora족 요리", "Songye족 요리", "콩고 스와힐리족 요리", "Tabwa족 요리", "Tagbo족 요리", "Tara Baaka족 요리", "중부 Teke족 요리", "동부 Teke족 요리", "Teke-Aboo족 요리", "Teke-Fuumu족 요리", "Tembo-Equateur족 요리", "Tembo-Kivu족 요리", "Tetela족 요리"
+    ];
 
-function loadData() {
-const storedRecipes = localStorage.getItem(STORAGE_KEY);
-const recipes = storedRecipes ? JSON.parse(storedRecipes) : [];
-if (!storedRecipes) localStorage.setItem(STORAGE_KEY, JSON.stringify([]));
+    const STORAGE_KEY = "mocked_recipe_data";
+    const DB_STORAGE_KEY = "mocked_food_database";
+    const categories = Array.from(new Set(defaultCategories));
 
-const storedDb = localStorage.getItem(DB_STORAGE_KEY);
-const foodDatabase = storedDb ? JSON.parse(storedDb) : {};
-if (!storedDb) localStorage.setItem(DB_STORAGE_KEY, JSON.stringify({}));
+    function loadData() {
+      const storedRecipes = localStorage.getItem(STORAGE_KEY);
+      const recipes = storedRecipes ? JSON.parse(storedRecipes) : [];
+      if (!storedRecipes) localStorage.setItem(STORAGE_KEY, JSON.stringify([]));
 
-return { recipes, foodDatabase };
-}
+      const storedDb = localStorage.getItem(DB_STORAGE_KEY);
+      const foodDatabase = storedDb ? JSON.parse(storedDb) : {};
+      if (!storedDb) localStorage.setItem(DB_STORAGE_KEY, JSON.stringify({}));
 
-function renderDashboard() {
-const { recipes, foodDatabase } = loadData();
+      return { recipes, foodDatabase };
+    }
 
-document.getElementById("statCategories").textContent = categories.length.toLocaleString();
+    function renderDashboard() {
+      const { recipes, foodDatabase } = loadData();
 
-let totalFoods = 0;
-Object.values(foodDatabase).forEach(arr => { totalFoods += Array.isArray(arr) ? arr.length : 0; });
-document.getElementById("statDbFoods").textContent = totalFoods.toLocaleString();
-document.getElementById("statRecipes").textContent = recipes.length.toLocaleString();
+      document.getElementById("statCategories").textContent = categories.length.toLocaleString();
 
-const recentList = document.getElementById("homeRecentRecipes");
-if (recipes.length === 0) {
-recentList.innerHTML = <li style="color:var(--text-muted); font-size:0.85rem;"&gt;작성된 레시피가 없습니다.&lt;/li>;
-} else {
-recentList.innerHTML = recipes.slice(0, 5).map(r => &lt;a class="recent-item" href="recipes.html?cat=${encodeURIComponent(r.category)}">
-<div>
-<div style="font-weight:600; font-size:0.9rem;">${r.title}&lt;/div&gt; &lt;span style="font-size:0.75rem; color:var(--primary-color); font-weight:600;"&gt;${r.category}</span>
-</div>
-<span style="font-size:0.8rem; color:var(--text-muted);">→</span>
-</a>
-`).join("");
-}
+      let totalFoods = 0;
+      Object.values(foodDatabase).forEach(arr => {
+        totalFoods += Array.isArray(arr) ? arr.length : 0;
+      });
+      document.getElementById("statDbFoods").textContent = totalFoods.toLocaleString();
+      document.getElementById("statRecipes").textContent = recipes.length.toLocaleString();
 
-const foodChips = document.getElementById("homeFoodChips");
-const sampleFoods = [];
-for (const [cat, foods] of Object.entries(foodDatabase)) {
-if (Array.isArray(foods)) {
-foods.forEach(f => sampleFoods.push({ cat, food: f }));
-}
-}
+      const recentList = document.getElementById("homeRecentRecipes");
+      if (recipes.length === 0) {
+        recentList.innerHTML = `<li style="color:var(--text-muted); font-size:0.85rem;">작성된 레시피가 없습니다.</li>`;
+      } else {
+        recentList.innerHTML = recipes.slice(0, 5).map(r => `
+          <a class="recent-item" href="recipes.html?cat=${encodeURIComponent(r.category)}">
+            <div>
+              <div style="font-weight:600; font-size:0.9rem;">${r.title}</div>
+              <span style="font-size:0.75rem; color:var(--primary-color); font-weight:600;">${r.category}</span>
+            </div>
+            <span style="font-size:0.8rem; color:var(--text-muted);">→</span>
+          </a>
+        `).join("");
+      }
 
-if (sampleFoods.length === 0) {
-foodChips.innerHTML = <span style="font-size:0.85rem; color:var(--text-muted);"&gt;DB 데이터가 없습니다.&lt;/span>;
-} else {
-foodChips.innerHTML = sampleFoods.slice(0, 14).map(item => &lt;a href="database.html?cat=${encodeURIComponent(item.cat)}" style="background:#f1f5f9; border:1px solid #cbd5e1; border-radius:20px; padding:4px 10px; font-size:0.8rem; text-decoration:none; color:inherit;">
- {item.cat})</small>
-</a>
-`).join("");
-}
-}
+      const foodChips = document.getElementById("homeFoodChips");
+      const sampleFoods = [];
+      for (const [cat, foods] of Object.entries(foodDatabase)) {
+        if (Array.isArray(foods)) {
+          foods.forEach(f => sampleFoods.push({ cat, food: f }));
+        }
+      }
 
-renderDashboard();
-</script>
+      if (sampleFoods.length === 0) {
+        foodChips.innerHTML = `<span style="font-size:0.85rem; color:var(--text-muted);">DB 데이터가 없습니다.</span>`;
+      } else {
+        foodChips.innerHTML = sampleFoods.slice(0, 14).map(item => `
+          <a href="database.html?cat=${encodeURIComponent(item.cat)}" style="background:#f1f5f9; border:1px solid #cbd5e1; border-radius:20px; padding:4px 10px; font-size:0.8rem; text-decoration:none; color:inherit;">
+            ${item.food} <small style="color:var(--text-muted);">(${item.cat})</small>
+          </a>
+        `).join("");
+      }
+    }
+
+    renderDashboard();
+  </script>
 </body>
 </html>
